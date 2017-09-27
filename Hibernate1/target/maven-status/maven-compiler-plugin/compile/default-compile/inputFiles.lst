@@ -1,4 +1,10 @@
-F:\workspace\Hibernate1\src\main\java\com\backend\model\Product.java
-F:\workspace\Hibernate1\src\main\java\com\backend\DAO\ProductDAOImlpe.java
-F:\workspace\Hibernate1\src\main\java\com\backend\config\Dbconfig.java
-F:\workspace\Hibernate1\src\main\java\com\backend\DAO\ProductDAO.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\ProductDAO.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\model\UserDetails.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\CategoryDAO.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\config\Dbconfig.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\UserDetailsDAO.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\CategoryDAOImpl.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\model\Category.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\model\Product.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\UserDetailsDAOImpl.java
+C:\Users\Admin\Desktop\Backend-master\src\main\java\com\backend\DAO\ProductDAOImpl.java

@@ -12,12 +12,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-   	<dependency> 
- 		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.12</version>
- 	    <scope>test</scope>
-	</dependency>
+   	<!-- https://mvnrepository.com/artifact/junit/junit -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+    <scope>test</scope>
+</dependency>
+   	
    
     <!-- spring dependencies-->
 <dependency>
@@ -77,5 +79,13 @@
   </dependencies>
   <build>
     <finalName>Hibernate1</finalName>
+    <pluginManagement>
+          <plugins>
+            <plugin>
+              <artifactId>maven-resources-plugin</artifactId>
+              <version>2.6</version>
+            </plugin>           
+          </plugins>
+        </pluginManagement>  
   </build>
 </project>

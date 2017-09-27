@@ -16,14 +16,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.backend.DAO.CategoryDAO;
-import com.backend.DAO.CategoryImpl;
+import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
 import com.backend.model.Category;
 import com.backend.model.Product;
 
 @Configuration
-@ComponentScan("com.spring")
+@ComponentScan("com.backend")
 @EnableTransactionManagement
 @Component
 
@@ -85,6 +85,6 @@ public class Dbconfig
 	@Bean(name = "categoryDAO")
 	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory)
 	{
-		return new CategoryImpl(sessionFactory);
+		return new CategoryDAOImpl(sessionFactory);
 	}
 }

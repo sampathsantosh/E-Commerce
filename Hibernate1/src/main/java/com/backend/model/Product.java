@@ -21,7 +21,7 @@ public class Product
 	
 	
 	@OneToMany
-	@JoinColumn(name="Cateid")
+	@JoinColumn(name="CATEGORY_ID")
 	
 	
 	public int getId() {

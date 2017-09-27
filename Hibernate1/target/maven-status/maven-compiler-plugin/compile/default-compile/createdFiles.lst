@@ -1,4 +1,10 @@
+com\backend\DAO\ProductDAOImpl.class
+com\backend\model\Category.class
 com\backend\config\Dbconfig.class
+com\backend\model\UserDetails.class
+com\backend\DAO\CategoryDAO.class
+com\backend\DAO\CategoryDAOImpl.class
 com\backend\model\Product.class
 com\backend\DAO\ProductDAO.class
-com\backend\DAO\ProductDAOImlpe.class
+com\backend\DAO\UserDetailsDAO.class
+com\backend\DAO\UserDetailsDAOImpl.class
