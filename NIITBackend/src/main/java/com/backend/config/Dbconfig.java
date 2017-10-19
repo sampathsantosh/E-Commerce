@@ -20,21 +20,24 @@ import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.CategoryDAOImpl;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.ProductDAOImpl;
-
 import com.backend.DAO.SupplierDAO;
 import com.backend.DAO.SupplierDAOImpl;
 import com.backend.model.Category;
 import com.backend.model.Product;
 import com.backend.model.Supplier;
 
+
+
+
+
 @Configuration
 @ComponentScan("com.backend")
 @EnableTransactionManagement
 @Component
-
 public class Dbconfig  
 {     
-	 @Bean(name = "dataSource")
+	@Autowired
+	@Bean(name = "dataSource")
 		public DataSource getDataSource() {
 			DriverManagerDataSource dataSource = new DriverManagerDataSource();
 			dataSource.setDriverClassName("org.h2.Driver");
@@ -65,7 +68,9 @@ public class Dbconfig
 			sessionBuilder.addAnnotatedClass(Product.class);
 			sessionBuilder.addAnnotatedClass(Category.class);
 			sessionBuilder.addAnnotatedClass(Supplier.class);
+			sessionBuilder.scanPackages("com.backend.*");
 			System.out.println("Session");
+			
 			
 			return sessionBuilder.buildSessionFactory();
 			
@@ -93,6 +98,7 @@ public class Dbconfig
 	{
 		return new CategoryDAOImpl(sessionFactory);
 	}
+	
 	@Autowired
 	@Bean(name = "supplierDAO")
 	public SupplierDAO getSupplierDAO(SessionFactory sessionFactory)

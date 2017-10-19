@@ -1,4 +1,4 @@
-package com.spring.test;
+/*package com.spring.test;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
@@ -17,9 +17,9 @@ import com.backend.model.Product;
 @ComponentScan("com.spring")
 public class Producttest 
 {	
-	/*@Autowired
+	@Autowired
 	private static Product product;
-	*/
+	
 	@Autowired
 	private static ProductDAO productDAO;
 	
@@ -77,4 +77,4 @@ boolean flag=productDAO.createProduct(product);
 		boolean flag=productDAO.updateProduct(product);
 		assertEquals("createProductTestCase", true, flag);
 	}
-}
+}*/

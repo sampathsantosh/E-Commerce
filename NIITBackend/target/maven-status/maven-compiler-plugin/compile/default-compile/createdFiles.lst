@@ -7,3 +7,4 @@ com\backend\DAO\CategoryDAO.class
 com\backend\DAO\CategoryDAOImpl.class
 com\backend\model\Product.class
 com\backend\DAO\ProductDAO.class
+com\backend\DAO\SupplierDAOImpl.class

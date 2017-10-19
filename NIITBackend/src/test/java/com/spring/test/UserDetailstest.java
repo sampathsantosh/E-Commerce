@@ -1,5 +1,6 @@
 /*package com.spring.test;
 
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
@@ -8,44 +9,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.backend.DAO.SupplierDAO;
+import com.backend.DAO.UserDetailsDAO;
 import com.backend.config.Dbconfig;
-import com.backend.model.Supplier;
-
+import com.backend.model.UserDetails;
 
 @SuppressWarnings("unused")
 @ComponentScan("com.spring")
-public class Suppliertest 
-{	
+public class UserDetailstest {
+
 	@Autowired
-	private static Product product;
-	
-	@Autowired
-	private static SupplierDAO supplierDAO;
-	
+	private static UserDetailsDAO userDetailsDAO;
 	
 	@SuppressWarnings("resource")
 	@BeforeClass
-	public static void initialize()
-	{
+	public static void initialize(){
+	
 		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
 		
 		context.register(Dbconfig.class);
 		context.refresh();
 		
-		supplierDAO=(SupplierDAO) context.getBean("supplierDAO");
-		
-		
+		userDetailsDAO=(UserDetailsDAO)context.getBean("userDetailsDAO");
 	}
 	@Test
-	public void saveSupplier()
+	public void saveUserDetails()
 	{
-		Supplier supplier =new Supplier();
+		UserDetails ud = new UserDetails();
 		
-		supplier.setName("santhosh");
+		ud.setAddress("Santhoshreddy");
+		ud.setPassword("fgxgft");
+		ud.setRole("admin");
+		ud.setCustomername("ravi");
+		ud.setAddress("near kphb");
 		
-	
-		boolean flag=supplierDAO.saveSupplier(supplier);
-		assertEquals("createSupplierTestCase", true, flag);
+  boolean flag =userDetailsDAO.saveUserDetails(ud);
+ assertEquals("createUserDetailsTestCase",true,flag);
+
 	}
-	}*/
+}
+*/
