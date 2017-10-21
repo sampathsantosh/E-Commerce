@@ -1,10 +1,13 @@
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\CategoryDAOImpl.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\SupplierDAOImpl.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\model\Category.java
-C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\config\Dbconfig.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\ProductDAO.java
-C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\ProductDAOImpl.java
-C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\model\Supplier.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\UserDAOImpl.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\CategoryDAO.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\SupplierDAO.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\config\Dbconfig.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\model\User.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\ProductDAOImpl.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\model\Supplier.java
 C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\model\Product.java
+C:\Users\Admin\git\NIITBackend\src\main\java\com\backend\DAO\UserDAO.java

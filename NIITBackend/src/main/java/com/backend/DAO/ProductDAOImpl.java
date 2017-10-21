@@ -2,10 +2,13 @@ package com.backend.DAO;
 
 import java.util.List;
 
-import javax.persistence.Query;
+
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -94,7 +97,7 @@ public class ProductDAOImpl implements ProductDAO {
 @Transactional
 	public List<Product> homeList() {
 		// TODO Auto-generated method stub
-		String hql="from Product ORDER BY RAND()";
+	/*	String hql="from Product ORDER BY RAND()";
 		@SuppressWarnings("rawtypes")
 		Query query=sessionFactory.getCurrentSession().createQuery(hql).setMaxResults(6);
 		@SuppressWarnings("unchecked")
@@ -102,8 +105,20 @@ public class ProductDAOImpl implements ProductDAO {
 		if (listProduct != null && !listProduct.isEmpty()) {
 			return listProduct;
 		}
+		*/
 		return null;
 	}
 	
+@Transactional
+public Product getItem(int id) {
 	
+	
+Product product=sessionFactory.getCurrentSession().get(Product.class, id);
+	
+	 return product;
+     
+}
+
+
+
 }
