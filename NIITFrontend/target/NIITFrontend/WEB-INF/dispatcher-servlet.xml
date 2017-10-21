@@ -12,6 +12,7 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
 <context:component-scan base-package="com.niit.controller"/>
 <context:component-scan base-package="com.backend.*"/>
 <mvc:annotation-driven/>
+<mvc:resources mapping="/resources/**" location="/resources/" />
 <context:annotation-config/>
 
 	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
@@ -21,6 +22,10 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
         <property name="suffix">
             <value>.jsp</value>
         </property>
-    </bean>
+        </bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000" />
+	</bean>
     
 </beans>
