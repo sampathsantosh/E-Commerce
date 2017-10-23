@@ -103,11 +103,12 @@
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
-							<form action="../addtoCart/${userid}/${product.id}">
-								<input type="submit" value="Add to Cart"
-									class="btn btn-primary">
 
-							</form>
+                								<form action="addtoCart/${product.id}">
+										<input type="submit" value="Add to Cart" class="btn btn-primary" >
+
+									</form>
+							
 
 						</div>
 

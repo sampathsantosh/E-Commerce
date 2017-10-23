@@ -55,6 +55,7 @@
                             <li><a href="category">Category action</a></li>
                             <li><a href="supplier">Supplier action</a></li>
                             <li><a href="product">Product action</a></li>
+                            <li><a href="product">Cart action</a></li>
                             <li class="divider"></li>
                             <!-- <li><a href="logout">Logout</a></li> -->
                          

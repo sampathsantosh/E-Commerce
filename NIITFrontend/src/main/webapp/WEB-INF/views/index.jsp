@@ -21,6 +21,7 @@
 
 </head>
 <body>
+${ExistingMessage}
 <div class="bs-example">
     <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,7 +56,7 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Sign Up <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="login">Login action</a></li>
-                            <li><a href="register">Registration action</a></li>
+                            <li><a href="signup">Registration action</a></li>
                             <li class="divider"></li>
                             <!-- <li><a href="logout">Logout</a></li> -->
                          
@@ -66,6 +67,11 @@
                         </ul>
                     </li>
                 </ul>
+                   
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="viewcart">Cart</a></li>
+               </ul>         
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
@@ -103,11 +109,12 @@
 								value="${product.description}" readonly="readonly">
 						</div>
 						<div>
-							<form action="../addtoCart/${userid}/${product.id}">
-								<input type="submit" value="Add to Cart"
-									class="btn btn-primary">
 
-							</form>
+                								<form action="addtoCart/${product.id}">
+										<input type="submit" value="Add to Cart" class="btn btn-primary" >
+
+									</form>
+							
 
 						</div>
 

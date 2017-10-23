@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.backend.DAO.CartDAO;
 import com.backend.DAO.CategoryDAO;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.SupplierDAO;
@@ -45,14 +46,21 @@ public class HomeController {
 	@Autowired
 	UserDAO userDAO;
 	
+	@Autowired
+	CartDAO cartDAO;
+	
+	@Autowired
+	HttpSession session;
+	
 	 @RequestMapping(value="/",  method=RequestMethod.GET)
 	    public String homePage(HttpSession session,Model m)
 	    {
 	    	session.setAttribute("categoryList", categoryDAO.list());
 	    	session.setAttribute("ProductList",productDAO.list());
 	    	session.setAttribute("HomeList", productDAO.homeList());
-	    	//m.addAttribute("UserClickedshowproduct", "true");
-	    	/*session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));*/
+	    	session.setAttribute("CartList",cartDAO.listCart());
+	    	m.addAttribute("UserClickedshowproduct", "true");
+	    	// session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));
 			return "index";
 	    }
 	
@@ -70,7 +78,7 @@ public class HomeController {
 	    }
 	 @SuppressWarnings("unchecked")
 		@RequestMapping(value = "/login_session_attributes")
-		public String login_session_attributes(HttpSession session,Model model) {
+		public String login_session_attributes(Model model) {
 			String email = SecurityContextHolder.getContext().getAuthentication().getName();
 			
 			User user = userDAO.get(email);
@@ -104,14 +112,16 @@ public class HomeController {
 	 }
 
 			
-		/*	@RequestMapping(value = "register")
+			@RequestMapping(value = "signup")
 			public String DisplayRegister(Model mv) {
 				mv.addAttribute("user", new User());
 				mv.addAttribute("IfRegisterClicked", "true");
 
-				return "WelcomePage";
-			}*/
+				return "Signup";
+			}
 
+			
+			
 			@RequestMapping(value = "/saveUser", method = RequestMethod.POST)
 			public String UserRegister(@ModelAttribute("user") User user,RedirectAttributes attributes) {
 				user.setEnabled(true);
