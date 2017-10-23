@@ -1,8 +1,11 @@
 package com.backend.model;
 import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 @Table(name = "USERS")
+@Component
 public class User {
 	 
    
