@@ -18,25 +18,17 @@ import com.backend.model.Cart;
 import com.backend.model.Product;
 import com.backend.model.User;
 
-
 @Controller
 public class CartController {
-	
-	
-	
+
 	@Autowired
 	CartDAO cartDAO;
 	
 	@Autowired
 	ProductDAO productDAO;
-	
-
 	@Autowired
 	UserDAO userDAO;
-	
 	int userId;
-	
-	
 	User user;
 	
 	
@@ -65,7 +57,7 @@ public class CartController {
 			cartDAO.saveProductToCart(item);
 			attributes.addFlashAttribute("ExistingMessage",  p.getName() +"is already exist");
 	
-			return "redirect:/";
+			return "CartPage";
 		} else {
 			Cart item = new Cart();
 			Product p = productDAO.getProductById(id);
@@ -138,31 +130,19 @@ public class CartController {
     
     
     
-    
-@RequestMapping(value="removeCart/{id}")
-public String deleteorder(@PathVariable("id") int id, HttpSession session) {
-
-	String email = SecurityContextHolder.getContext().getAuthentication().getName();
+	@RequestMapping(value="removeCart/{id}")
+	public String deleteorder(@PathVariable("id") int id, HttpSession session) 
+	{
+		cartDAO.removeCartById(id);
+		session.setAttribute("cartsize", cartDAO.cartsize((Integer) session.getAttribute("userid")));
+		return "redirect:/viewcart";
+	}
 	
-	User user = userDAO.get(email);
-	
-	
-	 userId = user.getId();
-
-	cartDAO.removeCartById(id);
-	session.setAttribute("cartsize",  cartDAO.cartsize(userId));
-
-	return "redirect:/viewcart";
-}
-
-
 @RequestMapping("continue_shopping")
 public String continueshopping()
 {
-return "redirect:/";	
-
+return "loggedin";	
 }
-
 
 
 

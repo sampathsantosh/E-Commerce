@@ -18,11 +18,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.backend.DAO.CartDAO;
 import com.backend.DAO.CategoryDAO;
+import com.backend.DAO.OrderDAO;
 import com.backend.DAO.ProductDAO;
 import com.backend.DAO.SupplierDAO;
 import com.backend.DAO.UserDAO;
 import com.backend.model.Product;
 import com.backend.model.User;
+
 
 
 @Controller
@@ -40,6 +42,7 @@ public class HomeController {
 
 	@Autowired
 	CategoryDAO categoryDAO;
+	
 	@Autowired
 	SupplierDAO supplierDAO;
 	
@@ -52,6 +55,10 @@ public class HomeController {
 	@Autowired
 	HttpSession session;
 	
+	@Autowired
+	OrderDAO orderDAO;
+	
+	
 	 @RequestMapping(value="/",  method=RequestMethod.GET)
 	    public String homePage(HttpSession session,Model m)
 	    {
@@ -59,7 +66,9 @@ public class HomeController {
 	    	session.setAttribute("ProductList",productDAO.list());
 	    	session.setAttribute("HomeList", productDAO.homeList());
 	    	session.setAttribute("CartList",cartDAO.listCart());
+	    	session.setAttribute("OrderList",orderDAO.listOrder());
 	    	m.addAttribute("UserClickedshowproduct", "true");
+	    	
 	    	// session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));
 			return "index";
 	    }
@@ -95,8 +104,8 @@ public class HomeController {
 			     if (authority.getAuthority().equals(role)) 
 			     {
 			    	 session.setAttribute("UserLoggedIn", "true");
-			    	//session.setAttribute("cartsize",cartDAO.cartsize((Integer)session.getAttribute("userid")));
-			    	 return "redirect:/";
+			    	session.setAttribute("cartsize",cartDAO.cartsize((Integer)session.getAttribute("userid")));
+			    	 return "/loggedin";
 			     }
 			     else 
 			     {
@@ -108,7 +117,7 @@ public class HomeController {
 				 return "/Admin";
 			     }
 			}
-			return "/index";
+			return "/loggedin";
 	 }
 
 			
@@ -146,12 +155,9 @@ public class HomeController {
 			        m.addAttribute("productList", productDAO.getProductById(id));
 			    	return "ShowProduct";
 			    }
-			
-			
-			
-
-			
-		@RequestMapping(value ="nav/{id}" )
+			  
+			  
+			@RequestMapping(value ="nav/{id}" )
 		public String ShowProductByCategory(@PathVariable("id") int id,RedirectAttributes attributes,Model m) {
 			
 			System.out.println("Listing the Product by Category ID:");
@@ -162,7 +168,20 @@ public class HomeController {
 		    return "redirect:/";
 		}
 
+			@RequestMapping(value="/myorders")
+			public String myOrders(Model model,HttpSession session)
+			{
+				model.addAttribute("users", new User());
+				int userId = (Integer) session.getAttribute("userid");
+				
+				model.addAttribute("od", orderDAO.getOrderDetailsByUser(userId));
+						
+				model.addAttribute("total",orderDAO.getTotal(userId));
+				return "myorders";
+				
+			}
+				
+			}
 		
-		
-	 }
+	 
 	    

@@ -38,7 +38,7 @@ width:100%;
 					<img height="300px" width="300px" alt="${product.id}"
 						src="<c:url value="/resources/images/${product.id}.jpg"></c:url>">
 					<div class="desc">
-						<%-- 	<strong>${product.name}</strong> --%>
+							<strong>${product.name}</strong> 
 
 					</div>
 				</div>
@@ -76,7 +76,6 @@ width:100%;
 		</c:forEach>
 	</div>
 
-
-
+<jsp:include page="footer.jsp" />
 </body>
-</html>
+</html> 

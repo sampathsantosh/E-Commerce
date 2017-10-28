@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Example of Bootstrap 3 Dropdowns within a Navbar</title>
+<title>Index Page</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -17,7 +17,7 @@
     	margin: 20px;
     }
 </style>
-<%-- <jsp:include page="showProduct.jsp" /> --%> 
+<%-- <jsp:include page="showProduct.jsp" />  --%>
 
 </head>
 <body>
@@ -33,12 +33,12 @@ ${ExistingMessage}
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">Watch Out</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Profile</a></li>
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
@@ -57,74 +57,90 @@ ${ExistingMessage}
                         <ul class="dropdown-menu">
                             <li><a href="login">Login action</a></li>
                             <li><a href="signup">Registration action</a></li>
-                            <li class="divider"></li>
-                            <!-- <li><a href="logout">Logout</a></li> -->
-                         
-                              <li> <a href="<c:url value="j_spring_security_logout" />">Logout</a></li>
-                            
                            
+                             
                             
+                          
                         </ul>
                     </li>
                 </ul>
-                   
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="viewcart">Cart</a></li>
-               </ul>         
+                
             </div><!-- /.navbar-collapse -->
         </div>
     </nav>
 </div>
+
+<!-- ================= -->
+
+<div class="container">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="2" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img class="img-rounded" class="img-responsive center-block"
+      src="C:\Users\Admin\Desktop\watches\snew arrivals.jpg" style="width:100%" "height="50%">
+    </div>
+    <div class="item">
+    <img class="img-rounded" class="img-responsive center-block"
+      src="C:\Users\Admin\Desktop\watches\watches2.jpg" style="width:100%" "height="50%">
+    </div>
+
+    <div class="item">
+    <img class="img-rounded" class="img-responsive center-block"
+      src="C:\Users\Admin\Desktop\watches\watches3.jpg" style="width:100%" "height="20%">
+    </div>
+ 
+  </div>
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 <!-- =================================== -->
 
-	<div class="container">
-		<c:forEach items="${ProductList}" var="product">
-			<h2 style="color: red">
-				<c:out value="${product.name }" />
-			</h2>
-
-
-			<div class="pi-img-wrapper">
-										<img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}"
-											class="img-responsive" style="width: 180px; height: 250px">
-										<div>				</div>
-			</div>
-
-			<div class="col-xs-4 ">
-				<div class="img">
-					<div class="desc">
-						<p>
-						<div class="form-group">
-							<input type="text" class="form-control" value="${product.name}"
-								readonly="readonly">
-						</div>
-
-						<div class="form-group">
-							<input type="text" class="form-control"
-								value="Rs. ${product.price}" readonly="readonly">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control"
-								value="${product.description}" readonly="readonly">
-						</div>
-						<div>
-
-                								<form action="addtoCart/${product.id}">
-										<input type="submit" value="Add to Cart" class="btn btn-primary" >
-
-									</form>
-							
-
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</c:forEach>
-	</div>
-
-
-
+	<div class="container-fluid">
+          
+        <div class="row">
+<c:forEach items="${ProductList}" var="product">     
+            <div class="col-md-3 col-sm-4">
+                <div class="thumbnail">
+                <img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}" alt="" width="298" height="398" />
+                <%-- <img src="<c:url value="/resources/assets/img/rv_1-gito-1.jpg"/>">
+                    --%> <div class="caption">
+                        <h3>${product.name}</h3>
+                        <ul>
+                         <p>${product.description}</p>
+                        <li>Price: Rs.<Strong>${product.price}</Strong></li>
+                       
+     
+                   <form:form action="addtoCart/${product.id}" method="POST">
+                                <input type="submit" value="Add to Cart" class="btn btn-primary">
+                                </form:form>
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+         
+           </c:forEach>       
+                </div>
+                
+         
+        </div>
+<br/><br/><br/><br/>
+	<jsp:include page="footer.jsp"></jsp:include> 
 </body>
-</html>   
+</html> 
