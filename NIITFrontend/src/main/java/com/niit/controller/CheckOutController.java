@@ -1,11 +1,11 @@
 package com.niit.controller;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,16 +17,16 @@ import com.backend.DAO.CheckOutDAO;
 import com.backend.DAO.OrderDAO;
 import com.backend.DAO.UserDAO;
 import com.backend.model.Card;
-
-
-
+import com.backend.model.User;
 
 
 @Controller
-public class CheckOutController 
-{
+public class CheckOutController {
+	
 	@Autowired
 	CheckOutDAO checkOutDAO;
+	
+
 	
 	@Autowired
 	UserDAO userDAO;
@@ -40,55 +40,57 @@ public class CheckOutController
 	@Autowired
 	CardDAO cardDAO;
 	
-	@RequestMapping("Checkout")
-	public String CheckoutPage(@ModelAttribute("card")Card card,Model model)
+	@RequestMapping("checkout")
+	public String CheckoutPage(@ModelAttribute ("card") Card card, Model model)
 	{
-		//model.addAttribute("total", checkOutDAO.getTotal(userid));
-		return "CheckOut";	
+		//model.addAttribute("total", checkDAO.getTotal(uid));
+		return "CheckOut";
+		
 	}
 
 	
-	
+	@RequestMapping(value="/invoice",method=RequestMethod.POST)
+	public String InvoicePage(@ModelAttribute ("card") Card card, HttpSession session, Model model){
 		
-	@RequestMapping(value="invoice",method=RequestMethod.POST)
-	public String InvoicePage(@ModelAttribute ("card") Card card, HttpSession session, Model model)
-	{
 		int charges=99;
-		int userId = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userId);
-		card.setCard_userid(userId);
+		int userid = (Integer) session.getAttribute("userid");
+		cartDAO.getCartById(userid);
+		card.setCard_userid(userid);
 		cardDAO.saveCard(card);
 		orderDAO.OrderDetails();
 		
 	   	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-    	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+    	model.addAttribute("total",checkOutDAO.getTotal(userid));
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
+		cartDAO.removeCartById(userid);
 		return "Invoice";
 	
 	
 	}
-	
 	
 	@RequestMapping(value="/CodInvoice",method=RequestMethod.POST)
-	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model)
-	{
-		int charges=99;	
-		int userId = (Integer) session.getAttribute("userid");
-		cartDAO.getCartById(userId);
+	public String CodInvoicePage(@ModelAttribute ("card") Card card,HttpSession session, Model model){
+		int charges=99;
+		
+String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		User user = userDAO.get(email);
+		
+		//int userid=user.getId();
+		
+		int userid = (Integer) session.getAttribute("userid");
+		cartDAO.getCartById(userid);
 		orderDAO.OrderDetails();
 	
-		model.addAttribute("user", userDAO.getUserById(userId));
-    	model.addAttribute("cd", cartDAO.getCartById(userId));
-    	model.addAttribute("total",checkOutDAO.getTotal(userId));
+		model.addAttribute("user", userDAO.getUserById(userid));
+    	model.addAttribute("cd", cartDAO.getCartById(userid));
+    	model.addAttribute("total",checkOutDAO.getTotal(userid));
    
 		model.addAttribute("cod", charges);
-		cartDAO.removeCartById(userId);
+		cartDAO.removeCartById(userid);
 		return "Invoice";
 	
-	
 	}
-
 }

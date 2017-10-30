@@ -66,7 +66,6 @@ public class HomeController {
 	    	session.setAttribute("ProductList",productDAO.list());
 	    	session.setAttribute("HomeList", productDAO.homeList());
 	    	session.setAttribute("CartList",cartDAO.listCart());
-	    	session.setAttribute("OrderList",orderDAO.listOrder());
 	    	m.addAttribute("UserClickedshowproduct", "true");
 	    	
 	    	// session.setAttribute("ListProduct", productDAO.getProductByCategoryID(id));
@@ -168,19 +167,7 @@ public class HomeController {
 		    return "redirect:/";
 		}
 
-			@RequestMapping(value="/myorders")
-			public String myOrders(Model model,HttpSession session)
-			{
-				model.addAttribute("users", new User());
-				int userId = (Integer) session.getAttribute("userid");
-				
-				model.addAttribute("od", orderDAO.getOrderDetailsByUser(userId));
-						
-				model.addAttribute("total",orderDAO.getTotal(userId));
-				return "myorders";
-				
-			}
-				
+			
 			}
 		
 	 
