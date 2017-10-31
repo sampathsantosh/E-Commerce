@@ -1,0 +1,13 @@
+#promo{
+  text-align:center;
+  padding:40px;
+  background:url(../../assets/img/rolex.jpg) no-repeat;
+  background-size:cover;
+}
+
+#promo.jambotron{
+  border-radius:20px;
+  padding:40px;
+  background-color:rgba(225,225,255,0.75);
+}
+

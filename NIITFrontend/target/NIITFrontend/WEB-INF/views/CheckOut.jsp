@@ -1,23 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html>
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CheckOut Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckOut</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+    
 </head>
+
 <body>
+
+
+<br>
+<br>
 
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
@@ -57,7 +66,7 @@
                                     </div>
                                 </div>
                               <%--   <div class="alert alert-danger alert-dismissable fade in">
-                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">Ã—</a>
                                  <strong><form:errors path="card_number"></form:errors></strong>
                                  </div> --%>
                                 <div class="row">
@@ -133,7 +142,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ã—</span></button>
                     <h4 class="modal-title">Cash On Delivery</h4></div>
                 <div class="modal-body">
                     <p>A delivery Charge of <Strong>Rs.99/-</Strong> is applicable for Cash on Delivery for orders below Rs.200/-</p>
@@ -155,9 +164,13 @@
  </form:form>
     </div>
     
-    <div>
+    <div 
+   <c:import url="/WEB-INF/views/footer.jsp" />>
 </div>
-  
+    
+    
+    <script src="<c:url value= "/resources/assets/js/jquery.min.js"/>"></script>
+    <script src="<c:url value= "/resources/assets/bootstrap/js/bootstrap.min.js"/>"></script>
 </body>
 
 </html>

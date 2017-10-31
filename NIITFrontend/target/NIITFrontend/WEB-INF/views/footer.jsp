@@ -1,57 +1,117 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page isELIgnored="false"%>
- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Online Site for all your beauty needs - YourStyle.Com</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-</head>
-<body>
 
-<footer>
-		<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-sm-6 footer-navigation">
-			    <h3><a href="#"><span> </span></a></h3>
-			    <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Terms and Conditions</a><strong> · </strong><a href="#">Privacy Policy</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">FAQ</a><strong> · </strong><a href="#">ContactUs</a></p>
-			    <p class="company-name"></p>
-			</div>
-			<div class="col-md-4 col-sm-6 footer-contacts">
-			    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-			        <p><span class="new-line-span"></span></p>
-			    </div>
-			    <div><i class="fa fa-phone footer-contacts-icon"></i>
-			        <p class="footer-center-info email text-left"> </p>
-			    </div>
-			    <div><i class="fa fa-envelope footer-contacts-icon"></i>
-			        <p> <a href="#" target="_blank"></a></p>
-			    </div>
-			</div>
-			<div class="clearfix visible-sm-block"></div>
-			<div class="col-md-4 footer-about">
-			    <h4>About the company</h4>
-			    <p> 
-			    </p>
-			    <div class="social-links social-icons">
-			    <a href="https://www.facebook.com/YourStyle-565160520541773/">
-			    <i class="fa fa-facebook"></i></a><a href="https://twitter.com/">
-			    <i class="fa fa-twitter"></i></a><a href="https://www.linkedin.com/">
-			    <i class="fa fa-linkedin"></i></a><a href="https://github.com/">
-			    <i class="fa fa-github"></i></a></div>
-			</div>			
-		</div>
-		</div>
-	</footer>
+<title>Footer</title>
+</head>
+<style>
+.footer {
+    padding: 50px 0 20px 0;
+    background-color: #35404f;
+    color: #878c94;
+}
+.footer .title{text-align: left;color:#fff;font-size:25px;}
+
+
+.footer .social-icon{padding:0px;margin:0px;}
+.footer .social-icon a{display:inline-block;color:#fff;font-size:25px;padding:5px;}
+.footer .acount-icon a{display:block;color:#fff;font-size:18px;padding:5px;text-decoration:none;}
+.footer .acount-icon .fa{margin-right:25px;}
+
+
+.footer .category a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    margin: 1px;
+    border-radius:4px;
+    margin-top: 6px;
+    background-color: black;
+    border: solid 1px #fff;
+}
+
+.footer .payment{margin:0px;padding:0px;list-style-type:none}
+.footer .payment li{list-style-type:none}
+.footer .payment li a {
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    float: left;
+    font-size: 25px;
+    padding: 10px 10px;
+}
+</style>
+<body>
+ <footer class="footer">
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-3">
+            <h4 class="title">Connect with Us</h4>
+             <p>Facebook</p>
+             <p>Twitter</p>
+             <p>Instagram</p>
+             <p>YouTube</p>
+             <p>Google</p>
+             <p>Dribble</p>
+            <ul class="social-icon">
+            <a href="#" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-google" aria-hidden="true"></i></a>
+            <a href="#" class="social"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+            </ul>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">My Account</h4>
+            <span class="acount-icon">          
+            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Wish List</a>
+            <a href="#"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart</a>
+            <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+            <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Language</a>           
+          </span>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Get to Know Us</h4>
+            <div class="Get to Know us">
+            <p>About Us</p>
+            <p>Careers</p>
+            <p>Press Releases</p>
+            <p>Watch Out Cares</p>
+            <p>Gift a Smile</p>
+            </div>
+            </div>
+        <div class="col-sm-3">
+            <h4 class="title">Payment Methods</h4>
+            <p>Amex</p>
+            <p>Credit Card</p>
+            <p>Paypal</p>
+            <p>Visa</p>
+            <ul class="payment">
+            <li><a href="#"><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>            
+            <li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
+            </ul>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="row text-center"> © 2017. Come and Watch at WatchOut.</div>
+        </div>
+        
+        
+    </footer>
+    
+    
+        
 </body>
 </html>

@@ -1,5 +1,8 @@
 package com.niit.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,8 @@ import com.backend.DAO.UserDAO;
 import com.backend.model.Cart;
 import com.backend.model.Product;
 import com.backend.model.User;
+
+
 
 
 @Controller
@@ -53,6 +58,13 @@ public class CartController
 				System.out.println(item);
 				item.setProductprice(p.getPrice());
 				item.setSubTotal(item.getProductprice() *p.getPrice());
+				
+				String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+				 
+				/* Date date = new java.util.Date();
+				   long diff = date.getTime();
+				   item.setOrderId(diff);*/
+				item.setOrderId(timeStamp);
 				cartDAO.saveProductToCart(item);
 				attributes.addFlashAttribute("ExistingMessage",  p.getName() +"is already exist");
 		
@@ -69,6 +81,11 @@ public class CartController
 				item.setStatus("C");
 				item.setSubTotal(q * p.getPrice());
 				item.setProductprice(p.getPrice());
+				String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+		     	   /* Date date = new java.util.Date();
+				   long diff = date.getTime();
+				   item.setOrderId(diff);*/
+	             item.setOrderId(timeStamp);
 				cartDAO.saveProductToCart(item);
 				attributes.addFlashAttribute("SuccessMessage", "Item"+p.getName()+" has been deleted Successfully");
 				return "redirect:/";
@@ -86,7 +103,7 @@ public class CartController
 	    	
 			int userid = user.getId();
 	    
-			//int userId = (Integer) session.getAttribute("userid");
+			int userId = (Integer) session.getAttribute("userid");
 			model.addAttribute("CartList", cartDAO.getCart(userid));
 			 if(cartDAO.cartsize(userid)!=0){
 				
