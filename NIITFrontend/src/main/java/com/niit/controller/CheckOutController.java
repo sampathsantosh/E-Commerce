@@ -1,6 +1,8 @@
 package com.niit.controller;
 
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,11 @@ import com.backend.DAO.CardDAO;
 import com.backend.DAO.CartDAO;
 import com.backend.DAO.CheckOutDAO;
 import com.backend.DAO.OrderDAO;
+import com.backend.DAO.ProductDAO;
 import com.backend.DAO.UserDAO;
 import com.backend.model.Card;
+import com.backend.model.Order;
+import com.backend.model.Product;
 
 
 
@@ -41,6 +46,9 @@ public class CheckOutController
 	
 	@Autowired
 	CardDAO cardDAO;
+	
+	@Autowired
+	ProductDAO productDAO;
 	
 	@RequestMapping(value = "checkout")
 	public String CheckoutPage(@ModelAttribute("card")Card card,Model model)
@@ -97,5 +105,27 @@ public class CheckOutController
 	{
 	   return "redirect:/viewcart";
 	}
+	
+	@RequestMapping(value="/product{userid}", method=RequestMethod.GET)
+	public String categoryList(@PathVariable ("userid") int userid , Map<String,Object> map , Model model)
+	{
+		Product product = new Product();
+		map.put("product", product);
+		map.put("prodList", productDAO.getProductById(userid));
+		return "ProductList";
 	}
 
+	@RequestMapping(value="/orders")
+	public String myOrders(Model model,HttpSession session)
+	{
+		/*model.addAttribute("users", new Users());*/
+		int userId = (Integer) session.getAttribute("userid");
+		
+		model.addAttribute("od", orderDAO.getOrderDetailsByUser(userId));
+				
+		model.addAttribute("total",orderDAO.getTotal(userId));
+		
+		return "orders";
+		
+	}
+}

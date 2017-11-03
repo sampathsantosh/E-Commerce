@@ -1,32 +1,55 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" session="true"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-
-<html>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CheckOut</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="resources/css/Pretty-Footer.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart Page</title>
+<link rel="stylesheet" href="resources/css/Pretty-Footer.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+  <style type="text/css">
+	.bs-example{
+    	margin: 20px;
+    }
+</style>
+<%-- <jsp:include page="showProduct.jsp" /> --%> 
+
 </head>
-
 <body>
-
-
-<br>
-<br>
+<div class="bs-example">
+    <nav id="myNavbar" class="navbar navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WatchOut</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                   
+              
+                    <li><a href="#">HOME</a></li>
+                </ul>
+               
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+</div>
+	
 
 <div class="container">
    <div class="col-xs-offset-2 col-xs-12">
@@ -66,7 +89,7 @@
                                     </div>
                                 </div>
                               <%--   <div class="alert alert-danger alert-dismissable fade in">
-                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">Ã—</a>
+                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                                  <strong><form:errors path="card_number"></form:errors></strong>
                                  </div> --%>
                                 <div class="row">
@@ -142,7 +165,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">Ã—</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Cash On Delivery</h4></div>
                 <div class="modal-body">
                     <p>A delivery Charge of <Strong>Rs.99/-</Strong> is applicable for Cash on Delivery for orders below Rs.200/-</p>
@@ -160,7 +183,13 @@
             </div>
         </div>
     </div>
-   
+   </br>
+    </br>
+     </br>
+      </br>
+       </br>
+        </br>
+         </br>
  </form:form>
     </div>
     

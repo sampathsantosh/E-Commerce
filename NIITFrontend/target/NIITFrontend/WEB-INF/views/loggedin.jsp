@@ -73,56 +73,43 @@ ${ExistingMessage}
         </div>
     </nav>
 </div>
-
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
 <div class="container">
-		<c:forEach items="${ProductList}" var="product">
-			<h2 style="color: red">
-				<c:out value="${product.name }" />
-			</h2>
-
-
-			<div class="row">
-										<img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}"
-											class="img-responsive" style="width: 180px; height: 250px">
-										<div>			
-										
-							   </div>
-			         </div>
-
-			<div class="row ">
-				<div class="img">
-					<div class="desc">
-						<p>
-						<div class="form-group">
-							<input type="text"style="width: 300px;" class="form-control" value="${product.name}"
-								readonly="readonly">
-						</div>
-
-						<div class="form-group">
-							<input type="text"style="width: 300px;" class="form-control"
-								value="Rs. ${product.price}" readonly="readonly">
-						</div>
-						<div class="form-group">
-							<input type="text"style="width: 300px;" class="form-control"
-								value="${product.description}" readonly="readonly">
-						</div>
-						<div>
-
-                								<form action="addtoCart/${product.id}">
-										<input type="submit" value="Add to Cart" class="btn btn-primary" >
-
-									</form>
-							
-
-						</div>
-						
-						</div>
-				</div>
-			</div>
-		</c:forEach> 
-	</div>
-
-
-	</div>
+          
+        <div class="row">
+<c:forEach items="${ProductList}" var="product">     
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+             <div class="panel-body"> <img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}" class="img-responsive"  alt="Image"></div>
+                <%-- <img src="<c:url value="/resources/assets/img/rv_1-gito-1.jpg"/>">
+                    --%> <div class="caption">
+                        <h3>${product.name}</h3>
+                        <ul>
+                         <p>${product.description}</p>
+                        <li>Price: Rs.<Strong>${product.price}</Strong></li>
+                       
+     
+                   <form:form action="addtoCart/${product.id}" method="POST">
+                                <input type="submit" value="Add to Cart" class="btn btn-primary">
+                                </form:form>
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+         
+           </c:forEach>       
+                </div>
+                
+         
+        </div>
+<br/><br/><br/><br/>
+	<jsp:include page="footer.jsp"></jsp:include> 
 </body>
-</html>    
+</html> 

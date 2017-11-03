@@ -116,13 +116,14 @@ ${ExistingMessage}
 </br>
 </br>
 </br>
-	<div class="container">
+
+<div class="container">
           
         <div class="row">
 <c:forEach items="${ProductList}" var="product">     
             <div class="col-sm-4">
                 <div class="panel panel-primary">
-             <div class="panel-body"> <img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}" class="img-responsive" style="width:100%" alt="Image"></div>
+             <div class="panel-body"> <img src="/NIITFrontend/myImage/imageDisplay?id=${product.id}" class="img-responsive"  alt="Image"></div>
                 <%-- <img src="<c:url value="/resources/assets/img/rv_1-gito-1.jpg"/>">
                     --%> <div class="caption">
                         <h3>${product.name}</h3>
