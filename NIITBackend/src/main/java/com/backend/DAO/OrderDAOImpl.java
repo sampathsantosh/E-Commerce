@@ -46,10 +46,9 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Transactional
-	public List getOrderDetailsByUser(int userid) {
+	public List<Order> getOrderDetailsByUser(int userid) {
 		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().createQuery("from Order where userid="+userid).list();
-		return null;
+		return sessionFactory.getCurrentSession().createQuery("from Order where userid="+userid).list();
 	}
 
 	@Transactional
@@ -59,12 +58,7 @@ public class OrderDAOImpl implements OrderDAO {
 		.createQuery("select sum(subTotal) from Order where userid="+uid).list();
 
 	
-	}
-	@Transactional
-	public List<Order> listOrder() {
-		// TODO Auto-generated method stub
-		List<Order> orderList= sessionFactory.getCurrentSession().createQuery("from Order").list();
-		return orderList;
+	
 	
 	}
 	

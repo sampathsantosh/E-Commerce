@@ -43,20 +43,22 @@ public class ProductDAOImpl implements ProductDAO {
 
 
 @Transactional
-	public Product getProductById(int product_id) {
-	String hql = "from" + " Product" + " where id=" + product_id;
-	@SuppressWarnings("rawtypes")
-	Query query = sessionFactory.getCurrentSession().createQuery(hql);
+public Product getProductById(int product_id) {
+String hql = "from" + " Product" + " where id=" + product_id;
+@SuppressWarnings("rawtypes")
+Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
-	@SuppressWarnings("unchecked")
-	List<Product> listProduct = (List<Product>) query.list();
+@SuppressWarnings("unchecked")
+List<Product> listProduct = (List<Product>) query.list();
 
-	if (listProduct != null && !listProduct.isEmpty()) {
-		return listProduct.get(0);
-	}
-
-	return null;
+if (listProduct != null && !listProduct.isEmpty()) {
+	return listProduct.get(0);
 }
+
+return null;
+}
+
+
 
 
 @SuppressWarnings({ "unchecked"})
